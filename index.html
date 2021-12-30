@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breezy Antivirus</title>
+
+    <!-- ---------------------- BOOTSTRAP ---------------------- -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+    <!-- ---------------------- CSS ---------------------- -->
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+                <h5 class="text-white h4">Collapsed content</h5>
+                <span class="text-muted">Toggleable via the navbar brand.</span>
+            </div>
+        </div>
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="scanning row col-xl-9 justify-content-around mx-auto">
+            <!-- <a href="#" class="quickLink col-xl-4 px-0"> -->
+            <div class="scanButton col-xl-4 text-center">
+                <img src="" alt="">
+                <h4>Quick Scan</h4>
+            </div>
+            <!-- </a> -->
+
+            <div class="scanButton col-xl-4 text-center">
+                <img src="" alt="">
+                <h4>Full Scan</h4>
+            </div>
+
+            <div class="scanButton col-xl-4 text-center">
+                <img src="" alt="">
+                <h4>Custom Scan</h4>
+            </div>
+        </div>
+
+        <div class="row col-xl-9 mt-2 mx-auto">
+            <div class="webProtection col-xl-8">
+                <h4 class="pr-5 pt-3">Web Protection</h4>
+                <div class="browsers row col-xl-10 justify-content-around mx-auto pt-2">
+                    <div class="form-check form-switch col-xl-2">
+                        <input class="form-check-input" type="checkbox" id="formSwitchCheckChecked1" checked="">
+                        <label class="form-check-label browserOption" for="formSwitchCheckChecked1">Chrome</label>
+                    </div>
+
+                    <div class="form-check form-switch col-xl-2">
+                        <input class="form-check-input" type="checkbox" id="formSwitchCheckChecked2" checked="">
+                        <label class="form-check-label browserOption" for="formSwitchCheckChecked2">Firefox</label>
+                    </div>
+
+                    <div class="form-check form-switch col-xl-2">
+                        <input class="form-check-input custom-control" type="checkbox" id="formSwitchCheckChecked3"
+                            checked="">
+                        <label class="form-check-label browserOption" for="formSwitchCheckChecked3">Edge</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="update col-xl-4 text-center pt-3">
+                <h4>Update</h4>
+            </div>
+        </div>
+
+        <section class="pro row col-xl-9 mx-auto mt-5">
+            <div class="description col-xl-8">
+                <h3>Maximize your protection with Breezy PRO</h3>
+                <p>Includes Enhanced Firewall, Protection for all devices, Safe Money and Protection for kids.</p>
+            </div>
+
+            <div class="trialButton col-xl-4">
+                <input type="submit" name="" id="" class="btn btn-success" value="FREE 30-day Trial">
+                <a href="">Buy Now</a>
+            </div>
+        </section>
+
+        <section class="proServices row col-xl-12 mx-auto">
+            <div class="row col-xl-9 justify-content-around mx-auto">
+                <div class="lockedService col-xl-3 text-center">
+                    <span class="badge bg-primary rounded-pill col-xl-3 offset-xl-9 mt-2">PRO</span>
+                    <img src="" alt="">
+                    <h4>Enhanced Firewall</h4>
+                </div>
+
+                <div class="lockedService col-xl-3 text-center">
+                    <span class="badge bg-primary rounded-pill col-xl-3 offset-xl-9 mt-2">PRO</span>
+                    <img src="" alt="">
+                    <h4>Protection for all devices</h4>
+                </div>
+
+                <div class="lockedService col-xl-3 text-center">
+                    <span class="badge bg-primary rounded-pill col-xl-3 offset-xl-9 mt-2">PRO</span>
+                    <img src="" alt="">
+                    <h4>Safe Money</h4>
+                </div>
+
+                <div class="lockedService col-xl-3 text-center">
+                    <span class="badge bg-primary rounded-pill col-xl-3 offset-xl-9 mt-2">PRO</span>
+                    <img src="" alt="">
+                    <h4>Protection for kids</h4>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p class="creditos">© 2021 - 2022 Powered by Rodrigo Manica. All rights reserved.</p>
+    </footer>
+
+    <!-- ------------------- SCRIPTS FRAMEWORK ------------------- -->
+
+    <!-- SCRIPT BOOTSTRAP -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+    </script>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

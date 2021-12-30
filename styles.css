@@ -1,0 +1,159 @@
+body {
+  background-color: #102b38;
+}
+
+h4 {
+  color: white;
+}
+
+.row {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.scanning {
+  margin-top: 50px;
+}
+
+.quickLink {
+  text-decoration: none;
+}
+
+.scanButton, .webProtection, .update, .pro, .lockedService {
+  height: 200px;
+  border: 1px solid #0f2a37;
+  background-color: #1a3a49;
+  -webkit-box-shadow: #0f2a37 5px 5px 10px 5px;
+          box-shadow: #0f2a37 5px 5px 10px 5px;
+}
+
+.scanButton:hover, .webProtection:hover, .update:hover, .pro:hover, .lockedService:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.webProtection, .update, .pro {
+  height: 105px;
+  padding-left: 40px;
+}
+
+.webProtection:hover, .update:hover, .pro:hover {
+  -webkit-transform: none;
+          transform: none;
+}
+
+.browsers p {
+  color: white;
+}
+
+.form-check-input:checked {
+  background-color: #4dd163;
+  background-color: #53ff5c;
+  border-color: #4dd163;
+  border-color: #53ff5c;
+  border-top-color: #4dd163;
+  border-right-color: #4dd163;
+  border-bottom-color: #4dd163;
+  border-left-color: #4dd163;
+}
+
+.browserOption {
+  color: white;
+  font-size: 18px;
+}
+
+.update {
+  padding-left: 0;
+}
+
+.update:hover {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+}
+
+.pro {
+  height: auto;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 0;
+}
+
+.pro:hover {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.description h3 {
+  color: white;
+  padding-left: 25px;
+  margin-bottom: 0;
+}
+
+.description p {
+  color: white;
+  padding-left: 25px;
+  margin-bottom: 0;
+}
+
+.trialButton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.trialButton a {
+  color: white;
+  font-size: 18px;
+}
+
+.btn-success, .btn-success:hover {
+  background-color: #e8b923;
+  border: 1px solid #e8b923;
+  font-size: 18px;
+  color: #212529;
+}
+
+.btn-success:hover {
+  opacity: 70%;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.badge {
+  background-color: #e8b923 !important;
+  color: #212529;
+}
+
+.lockedService {
+  height: 100px;
+}
+
+.lockedService h4 {
+  color: #658b97;
+  line-height: 50px;
+}
+
+.lockedService:hover {
+  -webkit-transform: none;
+          transform: none;
+}
+
+.creditos {
+  color: white;
+  margin-top: 20px;
+  text-align: center;
+}
+/*# sourceMappingURL=styles.css.map */

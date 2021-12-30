@@ -1,0 +1,163 @@
+$darkblue: #102b38;
+$borderblue: #0f2a37;
+$ligthblue: #1a3a49;
+$clearblue: #658b97;
+$green: #4dd163;
+$gold: #e8b923;
+$darkgray: #212529;
+$white: white;
+
+
+body {
+    background-color: $darkblue;
+    // height: 90vh;
+}
+
+h4 {
+    color: $white;
+    // color: #76FF03;
+    // color: #53ff5c;
+}
+
+.row {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.scanning {
+    margin-top: 50px;
+}
+
+.quickLink {
+    text-decoration: none;
+}
+
+.scanButton {
+    height: 200px;
+    border: 1px solid $borderblue;
+    background-color: $ligthblue;
+    box-shadow: $borderblue 5px 5px 10px 5px;
+}
+
+.scanButton:hover {
+    transform: scale(1.02);
+    transition: all 0.2s;
+}
+
+.webProtection {
+    @extend .scanButton;
+    height: 105px;
+    padding-left: 40px;
+}
+
+.webProtection:hover {
+    transform: none;
+}
+
+.browsers {
+    p {
+        color: $white;
+    }
+}
+
+.form-check-input:checked {
+    background-color: #4dd163;
+    background-color: #53ff5c;
+    border-color: #4dd163;
+    border-color: #53ff5c;
+    border-top-color: rgb(77, 209, 99);
+    border-right-color: rgb(77, 209, 99);
+    border-bottom-color: rgb(77, 209, 99);
+    border-left-color: rgb(77, 209, 99);
+}
+
+.browserOption {
+    color: $white;
+    font-size: 18px;
+}
+
+.update {
+    @extend .webProtection;
+    padding-left: 0;
+}
+
+.update:hover {
+    transform: scale(1.03);
+    transition: all 0.1s;
+}
+
+.pro {
+    @extend .webProtection;
+    height: auto;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 0;
+}
+
+.pro:hover {
+    transform: scale(1.03);
+    transition: all 0.2s;
+}
+
+.description {
+    h3 {
+        color: $white;
+        padding-left: 25px;
+        margin-bottom: 0;
+    }
+
+    p {
+        color: $white;
+        padding-left: 25px;
+        margin-bottom: 0;
+    }
+}
+
+.trialButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    a {
+        color: $white;
+        font-size: 18px;
+    }
+}
+
+.btn-success {
+    background-color: $gold;
+    border: 1px solid $gold;
+    font-size: 18px;
+    color: $darkgray;
+}
+
+.btn-success:hover {
+    @extend .btn-success;
+    opacity: 70%;
+    transition: all 0.5s;
+}
+
+.badge {
+    background-color: $gold !important;
+    color: $darkgray;
+}
+
+.lockedService {
+    @extend .scanButton;
+    height: 100px;
+
+    h4 {
+        color: $clearblue;
+        line-height: 50px;
+    }
+}
+
+.lockedService:hover {
+    transform: none;
+}
+
+.creditos {
+    color: $white;
+    margin-top: 20px;
+    text-align: center;
+}
