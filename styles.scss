@@ -7,21 +7,73 @@ $gold: #e8b923;
 $darkgray: #212529;
 $white: white;
 
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
 
 body {
     background-color: $darkblue;
-    // height: 90vh;
+    background-color: #0c1b2f;
+    font-family: 'Lato', sans-serif;
 }
 
 h4 {
+    color: white;
+}
+
+h6 {
     color: $white;
-    // color: #76FF03;
-    // color: #53ff5c;
+    margin-right: 50px;
+    margin-bottom: 0;
 }
 
 .row {
-    padding-right: 0;
-    padding-left: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.topBar {
+    background-color: #212529;
+    height: 30px;
+    padding: 0;
+}
+
+.menubar {
+    width: 190px;
+    height: 96vh;
+    color: $white;
+    padding: 0;
+    background-color: #212529;
+
+    .tool {
+        height: 17vh;
+        background-color: #212529;
+        border-right: none;
+    }
+
+    .power {
+        height: 28vh;
+
+        img:hover {
+            filter: drop-shadow(0px 0px 2px $white);
+            transition: all 0.2s;
+        }
+    }
+}
+
+h4 {
+    padding-top: auto;
+    padding-bottom: auto;
+    margin-bottom: 0;
+}
+
+.tool:hover {
+    background-color: $darkblue;
+    background-color: #0c1b2f;
+    transition: all 0.2s;
 }
 
 .scanning {
@@ -34,12 +86,12 @@ h4 {
 
 .scanButton {
     height: 200px;
-    border: 1px solid $borderblue;
-    background-color: $ligthblue;
-    box-shadow: $borderblue 5px 5px 10px 5px;
+    background-color: #13243a;
+    border: 1px solid #0c1b2f;
 }
 
 .scanButton:hover {
+    box-shadow: #11112a 1px 1px 5px 1px;
     transform: scale(1.02);
     transition: all 0.2s;
 }

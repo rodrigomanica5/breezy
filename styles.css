@@ -1,14 +1,74 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: #102b38;
+  background-color: #0c1b2f;
+  font-family: 'Lato', sans-serif;
 }
 
 h4 {
   color: white;
 }
 
+h6 {
+  color: white;
+  margin-right: 50px;
+  margin-bottom: 0;
+}
+
 .row {
-  padding-right: 0;
-  padding-left: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.topBar {
+  background-color: #212529;
+  height: 30px;
+  padding: 0;
+}
+
+.menubar {
+  width: 190px;
+  height: 96vh;
+  color: white;
+  padding: 0;
+  background-color: #212529;
+}
+
+.menubar .tool {
+  height: 17vh;
+  background-color: #212529;
+  border-right: none;
+}
+
+.menubar .power {
+  height: 28vh;
+}
+
+.menubar .power img:hover {
+  -webkit-filter: drop-shadow(0px 0px 2px white);
+          filter: drop-shadow(0px 0px 2px white);
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+h4 {
+  padding-top: auto;
+  padding-bottom: auto;
+  margin-bottom: 0;
+}
+
+.tool:hover {
+  background-color: #102b38;
+  background-color: #0c1b2f;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
 
 .scanning {
@@ -21,13 +81,13 @@ h4 {
 
 .scanButton, .webProtection, .update, .pro, .lockedService {
   height: 200px;
-  border: 1px solid #0f2a37;
-  background-color: #1a3a49;
-  -webkit-box-shadow: #0f2a37 5px 5px 10px 5px;
-          box-shadow: #0f2a37 5px 5px 10px 5px;
+  background-color: #13243a;
+  border: 1px solid #0c1b2f;
 }
 
 .scanButton:hover, .webProtection:hover, .update:hover, .pro:hover, .lockedService:hover {
+  -webkit-box-shadow: #11112a 1px 1px 5px 1px;
+          box-shadow: #11112a 1px 1px 5px 1px;
   -webkit-transform: scale(1.02);
           transform: scale(1.02);
   -webkit-transition: all 0.2s;
