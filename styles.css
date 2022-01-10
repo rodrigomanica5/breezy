@@ -14,6 +14,7 @@ body {
 
 h4 {
   color: white;
+  font-size: 22px;
 }
 
 h6 {
@@ -47,6 +48,12 @@ h6 {
   border-right: none;
 }
 
+.menubar .tool:hover {
+  background-color: #0c1b2f;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
 .menubar .power {
   height: 28vh;
 }
@@ -64,25 +71,15 @@ h4 {
   margin-bottom: 0;
 }
 
-.tool:hover {
-  background-color: #102b38;
-  background-color: #0c1b2f;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
 .scanning {
   margin-top: 50px;
-}
-
-.quickLink {
-  text-decoration: none;
 }
 
 .scanButton, .webProtection, .update, .pro, .lockedService {
   height: 200px;
   background-color: #13243a;
   border: 1px solid #0c1b2f;
+  border-radius: 6px;
 }
 
 .scanButton:hover, .webProtection:hover, .update:hover, .pro:hover, .lockedService:hover {
@@ -94,6 +91,10 @@ h4 {
   transition: all 0.2s;
 }
 
+.quickLink {
+  text-decoration: none;
+}
+
 .webProtection, .update, .pro {
   height: 105px;
   padding-left: 40px;
@@ -102,10 +103,8 @@ h4 {
 .webProtection:hover, .update:hover, .pro:hover {
   -webkit-transform: none;
           transform: none;
-}
-
-.browsers p {
-  color: white;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .form-check-input:checked {
@@ -129,6 +128,8 @@ h4 {
 }
 
 .update:hover {
+  -webkit-box-shadow: #11112a 1px 1px 5px 1px;
+          box-shadow: #11112a 1px 1px 5px 1px;
   -webkit-transform: scale(1.03);
           transform: scale(1.03);
   -webkit-transition: all 0.1s;
@@ -143,6 +144,8 @@ h4 {
 }
 
 .pro:hover {
+  -webkit-box-shadow: #11112a 1px 1px 5px 1px;
+          box-shadow: #11112a 1px 1px 5px 1px;
   -webkit-transform: scale(1.03);
           transform: scale(1.03);
   -webkit-transition: all 0.2s;
@@ -207,6 +210,8 @@ h4 {
 }
 
 .lockedService:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
   -webkit-transform: none;
           transform: none;
 }

@@ -22,6 +22,7 @@ body {
 
 h4 {
     color: white;
+    font-size: 22px;
 }
 
 h6 {
@@ -54,6 +55,11 @@ h6 {
         border-right: none;
     }
 
+    .tool:hover {
+        background-color: #0c1b2f;
+        transition: all 0.2s;
+    }
+
     .power {
         height: 28vh;
 
@@ -70,30 +76,25 @@ h4 {
     margin-bottom: 0;
 }
 
-.tool:hover {
-    background-color: $darkblue;
-    background-color: #0c1b2f;
-    transition: all 0.2s;
-}
-
 .scanning {
     margin-top: 50px;
-}
-
-.quickLink {
-    text-decoration: none;
 }
 
 .scanButton {
     height: 200px;
     background-color: #13243a;
     border: 1px solid #0c1b2f;
+    border-radius: 6px;
 }
 
 .scanButton:hover {
     box-shadow: #11112a 1px 1px 5px 1px;
     transform: scale(1.02);
     transition: all 0.2s;
+}
+
+.quickLink {
+    text-decoration: none;
 }
 
 .webProtection {
@@ -104,13 +105,9 @@ h4 {
 
 .webProtection:hover {
     transform: none;
+    box-shadow: none;
 }
 
-.browsers {
-    p {
-        color: $white;
-    }
-}
 
 .form-check-input:checked {
     background-color: #4dd163;
@@ -134,6 +131,7 @@ h4 {
 }
 
 .update:hover {
+    box-shadow: #11112a 1px 1px 5px 1px;
     transform: scale(1.03);
     transition: all 0.1s;
 }
@@ -147,6 +145,7 @@ h4 {
 }
 
 .pro:hover {
+    box-shadow: #11112a 1px 1px 5px 1px;
     transform: scale(1.03);
     transition: all 0.2s;
 }
@@ -205,6 +204,7 @@ h4 {
 }
 
 .lockedService:hover {
+    box-shadow: none;
     transform: none;
 }
 
