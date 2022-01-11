@@ -17,17 +17,18 @@ class Malware {
 
 const malwareArray = [];
 
-malwareArray.push(new Malware("Worm", "I-Worm/Mydoom.K", "Critical", "C:\Windows\System32\catroot2\mydoom.exe"));
-malwareArray.push(new Malware("Trojan", "Trojan.Fakealert.365", "Low", "C:\Windows\System32\catroot2\sdkey.exe"));
-malwareArray.push(new Malware("Worm", "Net-Worm.Win32.Koobface.b", "Medium", "C:\Windows\System32\catroot2\koobface.exe"));
-malwareArray.push(new Malware("Adware", "Adware.Win32.Look2me.ab", "Critical", "C:\Windows\System32\Boot\look2me.exe"));
-malwareArray.push(new Malware("Trojan", "Trojan IRC/Backdor.SdBot4.FRV", "Medium", "C:\Windows\SysWOW64\sdbot.exe"));
-malwareArray.push(new Malware("Ransomware", "CryptoLocker", "Critical", "C:\Windows\SysWOW64\cryptolocker.exe"));
-malwareArray.push(new Malware("Ransomware", "WannaCry", "Critical", "C:\Windows\debug\wannacry.exe"));
-malwareArray.push(new Malware("Trojan", "Trojan.Qoologic - Key Logger", "High", "C:\Windows\debug\qoologic.exe"));
-malwareArray.push(new Malware("Spyware", "Win32/Hoax.Renos.HX", "Low", "C:\Windows\System32\Boot\hoax.exe"));
+malwareArray.push(new Malware("Worm", "I-Worm/Mydoom.K", 4, "C:\Windows\System32\catroot2\mydoom.exe"));
+malwareArray.push(new Malware("Trojan", "Trojan.Fakealert.365", 1, "C:\Windows\System32\catroot2\sdkey.exe"));
+malwareArray.push(new Malware("Worm", "Net-Worm.Win32.Koobface.b", 2, "C:\Windows\System32\catroot2\koobface.exe"));
+malwareArray.push(new Malware("Adware", "Adware.Win32.Look2me.ab", 3, "C:\Windows\System32\Boot\look2me.exe"));
+malwareArray.push(new Malware("Trojan", "Trojan IRC/Backdor.SdBot4.FRV", 2, "C:\Windows\SysWOW64\sdbot.exe"));
+malwareArray.push(new Malware("Ransomware", "CryptoLocker", 4, "C:\Windows\SysWOW64\cryptolocker.exe"));
+malwareArray.push(new Malware("Ransomware", "WannaCry", 4, "C:\Windows\debug\wannacry.exe"));
+malwareArray.push(new Malware("Trojan", "Trojan.Qoologic - Key Logger", 3, "C:\Windows\debug\qoologic.exe"));
+malwareArray.push(new Malware("Spyware", "Win32/Hoax.Renos.HX", 1, "C:\Windows\System32\Boot\hoax.exe"));
 
 console.log(malwareArray);
+
 
 // --------------- OBJETOS SCAN-TYPE ---------------
 
@@ -39,14 +40,47 @@ class ScanType {
     }
 }
 
-const qs = new ScanType("Quick Scan", 0.03, "45%");
+const qs = new ScanType("Quick Scan", 0.03, "65%");
 const fs = new ScanType("Full Scan", 0.2, "98%");
 const cs = new ScanType("Custom Scan", 0.13, "98%");
 
 // --------------- FUNCION MATH.RANDOM ---------------
 
 function random() {
-    return Math.floor(Math.random() * 10);
+    return Math.floor(Math.random() * 9);
+}
+
+// --------------- FUNCION MATH.RANDOM FULL SCAN & CUSTOM SCAN ---------------
+
+function randomFsCs() {
+    return Math.floor(Math.random() * 7) + 1;
+}
+
+// --------------- FUNCION MATH.RANDOM QUICK SCAN ---------------
+
+function randomQs() {
+    return Math.floor(Math.random() * 4) + 1;
+}
+
+// --------------- SIMULACIONES ---------------
+
+let malwareQs = randomQs();
+let malwareFsCs = randomFsCs();
+
+const newMalwareArray = [];
+
+function simulacionQs() {
+    do {
+        let detected = malwareArray[random()].name;
+        newMalwareArray.push(detected);
+    } while (newMalwareArray.length < malwareQs)
+}
+
+function simulacionFsCs() {
+    do {
+        let detected = malwareArray[random()].name;
+        newMalwareArray.push(detected);
+    } while (newMalwareArray.length < malwareFsCs)
 }
 
 // --------------- FUNCION MENU3() ---------------
@@ -55,6 +89,7 @@ function menu3() {
     let menu3 = parseFloat(prompt("¿Cuántos Gigabytes de almacenamiento tiene ocupado tu equipo?"));
     return menu3;
 }
+
 
 // --------------- MENU INTERACTIVO ---------------
 
@@ -67,10 +102,11 @@ if (menu1 == "SI") {
         if (menu2 == 1) {
             alert("Haz elegido correr un " + qs.type + " en tu equipo.");
             alert("El tiempo estimado del análisis es de " + (menu3() * qs.rate) + " minutos.");
-            if (random() <= 5) {
+            if (random() <= 4) {
                 alert("Su equipo se encuentra limpio de Malwares");
             } else {
-                alert("Se han detectado los siguientes Malwares: " + malwareArray[random()].name);
+                simulacionQs();
+                alert("Se han detectado " + newMalwareArray.length + " Malware/s: " + newMalwareArray.join(" || "));
                 let choice = prompt("¿Deseas eliminar los archivos infectados de tu sistema? SI / NO").toUpperCase();
                 if (choice == "SI") {
                     malwareArray[random()].malwareMessage();
@@ -85,7 +121,8 @@ if (menu1 == "SI") {
             if (random() <= 1) {
                 alert("Su equipo se encuentra limpio de Malwares");
             } else {
-                alert("Se han detectado los siguientes Malwares: " + malwareArray[random()].name);
+                simulacionFsCs();
+                alert("Se han detectado " + newMalwareArray.length + " Malware/s: " + newMalwareArray.join(" || "));
                 let choice = prompt("¿Deseas eliminar los archivos infectados de tu sistema? SI / NO").toUpperCase();
                 if (choice == "SI") {
                     malwareArray[random()].malwareMessage();
@@ -100,7 +137,8 @@ if (menu1 == "SI") {
             if (random() <= 1) {
                 alert("Su equipo se encuentra limpio de Malwares");
             } else {
-                alert("Se han detectado los siguientes Malwares: " + malwareArray[random()].name);
+                simulacionFsCs();
+                alert("Se han detectado " + newMalwareArray.length + " Malware/s: " + newMalwareArray.join(" || "));
                 let choice = prompt("¿Deseas eliminar los archivos infectados de tu sistema? SI / NO").toUpperCase();
                 if (choice == "SI") {
                     malwareArray[random()].malwareMessage();
