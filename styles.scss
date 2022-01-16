@@ -17,6 +17,9 @@ $white: white;
 body {
     background-color: $darkblue;
     background-color: #0c1b2f;
+    // background-color: #007bff;
+    background-color: lighten($color: #0c1b2f, $amount: 2);
+    background-color: #2f3642;
     font-family: 'Lato', sans-serif;
 }
 
@@ -27,7 +30,6 @@ h4 {
 
 h6 {
     color: $white;
-    margin-right: 50px;
     margin-bottom: 0;
 }
 
@@ -40,6 +42,10 @@ h6 {
     background-color: #212529;
     height: 30px;
     padding: 0;
+
+    h6 {
+        margin-right: 50px;
+    }
 }
 
 .menubar {
@@ -50,18 +56,22 @@ h6 {
     background-color: #212529;
 
     .tool {
-        height: 17vh;
-        background-color: #212529;
+        height: auto;
         border-right: none;
     }
 
     .tool:hover {
-        background-color: #0c1b2f;
+        background-color: lighten($color: #0c1b2f, $amount: 2);
+        background-color: #2f3642;
         transition: all 0.2s;
     }
 
+    .toolPro {
+        height: auto;
+        border-right: none;
+    }
+
     .power {
-        height: 28vh;
 
         img:hover {
             filter: drop-shadow(0px 0px 2px $white);
@@ -82,14 +92,15 @@ h4 {
 
 .scanButton {
     height: 200px;
+    width: 33%;
     background-color: #13243a;
-    border: 1px solid #0c1b2f;
+    background-color: #0c1b2f;
+    background-color: #3f4752;
     border-radius: 6px;
 }
 
 .scanButton:hover {
-    box-shadow: #11112a 1px 1px 5px 1px;
-    transform: scale(1.02);
+    transform: scale(1.01);
     transition: all 0.2s;
 }
 
@@ -98,9 +109,13 @@ h4 {
 }
 
 .webProtection {
-    @extend .scanButton;
+    // @extend .scanButton;
+    width: 66.5%;
+    background-color: #0c1b2f;
+    background-color: #3f4752;
     height: 105px;
     padding-left: 40px;
+    border-radius: 6px;
 }
 
 .webProtection:hover {
@@ -126,26 +141,27 @@ h4 {
 }
 
 .update {
-    @extend .webProtection;
+    width: 33%;
     padding-left: 0;
+    border-radius: 6px;
 }
 
 .update:hover {
-    box-shadow: #11112a 1px 1px 5px 1px;
-    transform: scale(1.03);
-    transition: all 0.1s;
+    transform: scale(1.01);
+    transition: all 0.2s;
 }
 
 .pro {
-    @extend .webProtection;
     height: auto;
+    background-color: #0c1b2f;
+    background-color: #3f4752;
+    border-radius: 6px;
     padding-top: 25px;
     padding-bottom: 25px;
     padding-left: 0;
 }
 
 .pro:hover {
-    box-shadow: #11112a 1px 1px 5px 1px;
     transform: scale(1.03);
     transition: all 0.2s;
 }
@@ -196,6 +212,7 @@ h4 {
 .lockedService {
     @extend .scanButton;
     height: 100px;
+    width: 24.7%;
 
     h4 {
         color: $clearblue;
