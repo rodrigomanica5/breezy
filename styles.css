@@ -7,10 +7,6 @@
 }
 
 body {
-  background-color: #102b38;
-  background-color: #0c1b2f;
-  background-color: #0e2037;
-  background-color: #2f3642;
   font-family: 'Lato', sans-serif;
 }
 
@@ -35,11 +31,20 @@ h6 {
   padding: 0;
 }
 
+.topBar .language {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.topBar .language .languageOption {
+  padding-left: 10px;
+}
+
 .topBar h6 {
   margin-right: 50px;
 }
 
-.menubar {
+.menuBar {
   width: 190px;
   height: 96vh;
   color: white;
@@ -47,28 +52,32 @@ h6 {
   background-color: #212529;
 }
 
-.menubar .tool {
+.menuBar .tool {
   height: auto;
   border-right: none;
+  cursor: pointer;
 }
 
-.menubar .tool:hover {
-  background-color: #0e2037;
-  background-color: #2f3642;
+.menuBar .tool:hover {
+  background-color: #2c2e43;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
 
-.menubar .toolPro {
+.menuBar .toolPro {
   height: auto;
   border-right: none;
 }
 
-.menubar .toolPro h6 {
+.menuBar .toolPro h6 {
   color: #7d8a9b;
 }
 
-.menubar .power img:hover {
+.menuBar .power img {
+  cursor: pointer;
+}
+
+.menuBar .power img:hover {
   -webkit-filter: drop-shadow(0px 0px 2px white);
   filter: drop-shadow(0px 0px 2px white);
   -webkit-transition: all 0.2s;
@@ -89,16 +98,14 @@ h4 {
 .lockedService {
   height: 205px;
   width: 33%;
-  background-color: #13243a;
-  background-color: #0c1b2f;
   background-color: #3f4752;
   border-radius: 6px;
   padding-top: 5px;
+  cursor: pointer;
 }
 
 .scanButton p,
 .lockedService p {
-  color: #7d8a9b;
   color: #b8c3c9;
   font-size: 15px;
   margin-bottom: 0;
@@ -112,13 +119,8 @@ h4 {
   transition: all 0.2s;
 }
 
-.quickLink {
-  text-decoration: none;
-}
-
 .webProtection {
   width: 66.5%;
-  background-color: #0c1b2f;
   background-color: #3f4752;
   height: 105px;
   padding-left: 40px;
@@ -153,6 +155,7 @@ h4 {
   padding-left: 0;
   padding-right: 0;
   border-radius: 6px;
+  cursor: pointer;
 }
 
 .update:hover {
@@ -164,7 +167,6 @@ h4 {
 
 .pro {
   height: auto;
-  background-color: #0c1b2f;
   background-color: #3f4752;
   border-radius: 6px;
   padding-top: 25px;
@@ -207,6 +209,7 @@ h4 {
 .trialButton a {
   color: white;
   font-size: 18px;
+  padding-top: 10px;
 }
 
 .btn-success,
@@ -231,11 +234,10 @@ h4 {
 .lockedService {
   height: 100px;
   width: 24.7%;
+  cursor: default;
 }
 
 .lockedService h4 {
-  color: #658b97;
-  color: #647082;
   color: #7d8a9b;
   line-height: 50px;
 }
@@ -253,15 +255,29 @@ h4 {
   text-align: center;
 }
 
-/* ---- reset ---- */
-body {
-  margin: 0;
-  font: normal 75% Arial, Helvetica, sans-serif;
+.detectionList {
+  margin-top: 150px;
 }
 
+.t1 {
+  width: 20%;
+}
+
+.t2 {
+  width: 10%;
+}
+
+.t3 {
+  width: 10%;
+}
+
+.t4 {
+  width: 30%;
+}
+
+/* ---- reset ---- */
 canvas {
   display: block;
-  vertical-align: bottom;
 }
 
 /* ---- particles.js container ---- */
@@ -275,43 +291,6 @@ canvas {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
-}
-
-/* ---- stats.js ---- */
-.count-particles {
-  background: #000022;
-  position: absolute;
-  top: 48px;
-  left: 0;
-  width: 80px;
-  color: #13E8E9;
-  font-size: .8em;
-  text-align: left;
-  text-indent: 4px;
-  line-height: 14px;
-  padding-bottom: 2px;
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: bold;
-}
-
-.js-count-particles {
-  font-size: 1.1em;
-}
-
-#stats,
-.count-particles {
-  -webkit-user-select: none;
-  margin-top: 5px;
-  margin-left: 5px;
-}
-
-#stats {
-  border-radius: 3px 3px 0 0;
-  overflow: hidden;
-}
-
-.count-particles {
-  border-radius: 0 0 3px 3px;
 }
 
 /*# sourceMappingURL=styles.css.map */

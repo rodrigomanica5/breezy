@@ -1,11 +1,11 @@
-$darkblue: #102b38;
-$borderblue: #0f2a37;
-$ligthblue: #1a3a49;
-$clearblue: #658b97;
-$green: #4dd163;
-$gold: #e8b923;
 $darkgray: #212529;
+$gold: #e8b923;
 $white: white;
+$darkMenu: #212529;
+$disabled: #7d8a9b;
+$bg-box: #3f4752;
+$bg-general: #2c2e43;
+$info: #b8c3c9;
 
 * {
     box-sizing: border-box;
@@ -15,16 +15,13 @@ $white: white;
 }
 
 body {
-    background-color: $darkblue;
-    background-color: #0c1b2f;
-    // background-color: #007bff;
-    background-color: lighten($color: #0c1b2f, $amount: 2);
-    background-color: #2f3642;
+    // background-color: lighten($color: #0c1b2f, $amount: 2);
+    // background-color: #2f3642;
     font-family: 'Lato', sans-serif;
 }
 
 h4 {
-    color: white;
+    color: $white;
     font-size: 22px;
 }
 
@@ -39,30 +36,40 @@ h6 {
 }
 
 .topBar {
-    background-color: #212529;
+    background-color: $darkMenu;
     height: 30px;
     padding: 0;
+
+    .language {
+        margin-right: 20px;
+        cursor: pointer;
+
+        .languageOption {
+            padding-left: 10px;
+        }
+    }
 
     h6 {
         margin-right: 50px;
     }
 }
 
-.menubar {
+.menuBar {
     width: 190px;
     height: 96vh;
     color: $white;
     padding: 0;
-    background-color: #212529;
+    background-color: $darkMenu;
 
     .tool {
         height: auto;
         border-right: none;
+        cursor: pointer;
     }
 
     .tool:hover {
-        background-color: lighten($color: #0c1b2f, $amount: 2);
-        background-color: #2f3642;
+        // background-color: #2f3642;
+        background-color: $bg-general;
         transition: all 0.2s;
     }
 
@@ -71,11 +78,15 @@ h6 {
         border-right: none;
 
         h6 {
-            color: #7d8a9b;
+            color: $disabled;
         }
     }
 
     .power {
+
+        img {
+            cursor: pointer;
+        }
 
         img:hover {
             filter: drop-shadow(0px 0px 2px $white);
@@ -97,16 +108,13 @@ h4 {
 .scanButton {
     height: 205px;
     width: 33%;
-    background-color: #13243a;
-    background-color: #0c1b2f;
-    background-color: #3f4752;
+    background-color: $bg-box;
     border-radius: 6px;
     padding-top: 5px;
+    cursor: pointer;
 
     p {
-        color: #7d8a9b;
-        color: #b8c3c9;
-        // color: $white;
+        color: $info;
         font-size: 15px;
         margin-bottom: 0;
     }
@@ -117,15 +125,9 @@ h4 {
     transition: all 0.2s;
 }
 
-.quickLink {
-    text-decoration: none;
-}
-
 .webProtection {
-    // @extend .scanButton;
     width: 66.5%;
-    background-color: #0c1b2f;
-    background-color: #3f4752;
+    background-color: $bg-box;
     height: 105px;
     padding-left: 40px;
     border-radius: 6px;
@@ -158,6 +160,7 @@ h4 {
     padding-left: 0;
     padding-right: 0;
     border-radius: 6px;
+    cursor: pointer;
 }
 
 .update:hover {
@@ -167,8 +170,7 @@ h4 {
 
 .pro {
     height: auto;
-    background-color: #0c1b2f;
-    background-color: #3f4752;
+    background-color: $bg-box;
     border-radius: 6px;
     padding-top: 25px;
     padding-bottom: 25px;
@@ -202,6 +204,7 @@ h4 {
     a {
         color: $white;
         font-size: 18px;
+        padding-top: 10px;
     }
 }
 
@@ -227,11 +230,10 @@ h4 {
     @extend .scanButton;
     height: 100px;
     width: 24.7%;
+    cursor: default;
 
     h4 {
-        color: $clearblue;
-        color: #647082;
-        color: #7d8a9b;
+        color: $disabled;
         line-height: 50px;
     }
 }
@@ -247,17 +249,34 @@ h4 {
     text-align: center;
 }
 
+// ------------------- QUARANTINE CONTENT 
+
+.detectionList {
+    margin-top: 150px;
+}
+
+.t1 {
+    width: 20%;
+}
+
+.t2 {
+    width: 10%;
+}
+
+.t3 {
+    width: 10%;
+}
+
+.t4 {
+    width: 30%;
+}
+
 // ------------------- BACKGROUND 
 
 /* ---- reset ---- */
-body {
-    margin: 0;
-    font: normal 75% Arial, Helvetica, sans-serif;
-}
 
 canvas {
     display: block;
-    vertical-align: bottom;
 }
 
 /* ---- particles.js container ---- */
@@ -266,46 +285,9 @@ canvas {
     z-index: -1;
     width: 100%;
     height: 96vh;
-    background-color: #2c2e43;
+    background-color: $bg-general;
     background-image: url("");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
-}
-
-/* ---- stats.js ---- */
-.count-particles {
-    background: #000022;
-    position: absolute;
-    top: 48px;
-    left: 0;
-    width: 80px;
-    color: #13E8E9;
-    font-size: .8em;
-    text-align: left;
-    text-indent: 4px;
-    line-height: 14px;
-    padding-bottom: 2px;
-    font-family: Helvetica, Arial, sans-serif;
-    font-weight: bold;
-}
-
-.js-count-particles {
-    font-size: 1.1em;
-}
-
-#stats,
-.count-particles {
-    -webkit-user-select: none;
-    margin-top: 5px;
-    margin-left: 5px;
-}
-
-#stats {
-    border-radius: 3px 3px 0 0;
-    overflow: hidden;
-}
-
-.count-particles {
-    border-radius: 0 0 3px 3px;
 }

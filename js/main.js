@@ -1,133 +1,3 @@
-// --------------- BACKGROUND
-
-particlesJS("particles-js", {
-    "particles": {
-        "number": {
-            "value": 6,
-            "density": {
-                "enable": true,
-                "value_area": 800
-            }
-        },
-        "color": {
-            "value": "#1b1e34"
-        },
-        "shape": {
-            "type": "polygon",
-            "stroke": {
-                "width": 0,
-                "color": "#000"
-            },
-            "polygon": {
-                "nb_sides": 6
-            },
-            "image": {
-                "src": "img/github.svg",
-                "width": 100,
-                "height": 100
-            }
-        },
-        "opacity": {
-            "value": 0.3,
-            "random": true,
-            "anim": {
-                "enable": false,
-                "speed": 1,
-                "opacity_min": 0.1,
-                "sync": false
-            }
-        },
-        "size": {
-            "value": 160,
-            "random": false,
-            "anim": {
-                "enable": true,
-                "speed": 10,
-                "size_min": 40,
-                "sync": false
-            }
-        },
-        "line_linked": {
-            "enable": false,
-            "distance": 200,
-            "color": "#ffffff",
-            "opacity": 1,
-            "width": 2
-        },
-        "move": {
-            "enable": true,
-            "speed": 8,
-            "direction": "none",
-            "random": false,
-            "straight": false,
-            "out_mode": "out",
-            "bounce": false,
-            "attract": {
-                "enable": false,
-                "rotateX": 600,
-                "rotateY": 1200
-            }
-        }
-    },
-    "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-            "onhover": {
-                "enable": false,
-                "mode": "grab"
-            },
-            "onclick": {
-                "enable": false,
-                "mode": "push"
-            },
-            "resize": true
-        },
-        "modes": {
-            "grab": {
-                "distance": 400,
-                "line_linked": {
-                    "opacity": 1
-                }
-            },
-            "bubble": {
-                "distance": 400,
-                "size": 40,
-                "duration": 2,
-                "opacity": 8,
-                "speed": 3
-            },
-            "repulse": {
-                "distance": 200,
-                "duration": 0.4
-            },
-            "push": {
-                "particles_nb": 4
-            },
-            "remove": {
-                "particles_nb": 2
-            }
-        }
-    },
-    "retina_detect": true
-});
-var count_particles, stats, update;
-stats = new Stats;
-stats.setMode(0);
-stats.domElement.style.position = 'absolute';
-stats.domElement.style.left = '0px';
-stats.domElement.style.top = '0px';
-document.body.appendChild(stats.domElement);
-count_particles = document.querySelector('.js-count-particles');
-update = function () {
-    stats.begin();
-    stats.end();
-    if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
-        count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
-    }
-    requestAnimationFrame(update);
-};
-requestAnimationFrame(update);;
-
 // --------------- OBJETOS MALWARE ---------------
 
 class Malware {
@@ -136,10 +6,6 @@ class Malware {
         this.name = var2;
         this.danger = var3;
         this.location = var4;
-    }
-
-    malwareMessage() {
-        return alert("##################################################### ----------------------------- SEE YOU SOON ---------------------------- ##################################################### // by HajKtuZ");
     }
 }
 
@@ -213,13 +79,21 @@ function simulacionFsCs() {
     } while (newMalwareArray.length < malwareFsCs)
 }
 
+// --------------- CONTENIDOS TOOLS ---------------
+
+statusTool();
+// quarantineTool();
+
+// --------------- IDIOMA ALTERNATIVO ---------------
+
+// spanish();
+
 // --------------- FUNCION MENU3() ---------------
 
 function menu3() {
     let menu3 = parseFloat(prompt("¿Cuántos Gigabytes de almacenamiento tiene ocupado tu equipo?"));
     return menu3;
 }
-
 
 // --------------- MENU INTERACTIVO ---------------
 
@@ -231,7 +105,7 @@ if (menu1 == "SI") {
         let menu2 = parseInt(prompt("Elige el tipo de análisis: 1- " + qs.type + " 2- " + fs.type + " 3- " + cs.type + ". Para SALIR presionar 0"));
         if (menu2 == 1) {
             alert("Haz elegido correr un " + qs.type + " en tu equipo.");
-            alert("El tiempo estimado del análisis es de " + (menu3() * qs.rate) + " minutos.");
+            alert("El tiempo estimado del análisis es de " + parseInt(menu3() * qs.rate) + " minutos.");
             if (random() <= 4) {
                 alert("Su equipo se encuentra limpio de Malwares");
             } else {
@@ -239,7 +113,7 @@ if (menu1 == "SI") {
                 alert("Se han detectado " + newMalwareArray.length + " Malware/s: " + newMalwareArray.join(" || "));
                 let choice = prompt("¿Deseas eliminar los archivos infectados de tu sistema? SI / NO").toUpperCase();
                 if (choice == "SI") {
-                    malwareArray[random()].malwareMessage();
+                    alert("Los Malwares detectados han sido eliminados de su sistema");
                 } else {
                     alert("No hay problema, aislaremos el archivo infectado en cuarentena");
                 }
@@ -247,7 +121,7 @@ if (menu1 == "SI") {
             break;
         } else if (menu2 == 2) {
             alert("Haz elegido correr un " + fs.type + " en tu equipo.");
-            alert("El tiempo estimado del análisis es de " + (menu3() * fs.rate) + " minutos.");
+            alert("El tiempo estimado del análisis es de " + parseInt(menu3() * fs.rate) + " minutos.");
             if (random() <= 1) {
                 alert("Su equipo se encuentra limpio de Malwares");
             } else {
@@ -255,7 +129,7 @@ if (menu1 == "SI") {
                 alert("Se han detectado " + newMalwareArray.length + " Malware/s: " + newMalwareArray.join(" || "));
                 let choice = prompt("¿Deseas eliminar los archivos infectados de tu sistema? SI / NO").toUpperCase();
                 if (choice == "SI") {
-                    malwareArray[random()].malwareMessage();
+                    alert("Los Malwares detectados han sido eliminados de su sistema");
                 } else {
                     alert("No hay problema, aislaremos el archivo infectado en cuarentena");
                 }
@@ -263,7 +137,7 @@ if (menu1 == "SI") {
             break;
         } else if (menu2 == 3) {
             alert("Haz elegido correr un " + cs.type + " en tu equipo.");
-            alert("El tiempo estimado del análisis es de " + (menu3() * cs.rate) + " minutos.");
+            alert("El tiempo estimado del análisis es de " + parseInt(menu3() * cs.rate) + " minutos.");
             if (random() <= 1) {
                 alert("Su equipo se encuentra limpio de Malwares");
             } else {
@@ -271,7 +145,7 @@ if (menu1 == "SI") {
                 alert("Se han detectado " + newMalwareArray.length + " Malware/s: " + newMalwareArray.join(" || "));
                 let choice = prompt("¿Deseas eliminar los archivos infectados de tu sistema? SI / NO").toUpperCase();
                 if (choice == "SI") {
-                    malwareArray[random()].malwareMessage();
+                    alert("Los Malwares detectados han sido eliminados de su sistema");
                 } else {
                     alert("No hay problema, aislaremos el archivo infectado en cuarentena");
                 }
@@ -292,4 +166,4 @@ if (menu1 == "SI") {
 
 // let detectedMalwares = localStorage.getItem("list");
 
-document.main
+// quarantineContent();
