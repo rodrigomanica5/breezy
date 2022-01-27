@@ -4,7 +4,7 @@ class Malware {
     constructor(var1, var2, var3, var4) {
         this.type = var1;
         this.name = var2;
-        this.danger = var3;
+        this.risk = var3;
         this.location = var4;
     }
 }
@@ -13,32 +13,32 @@ class Malware {
 
 const malwareArray = [];
 
-malwareArray.push(new Malware("Worm", "I-Worm/Mydoom.K", 4, "C:\Windows\System32\catroot2\mydoom.exe"));
-malwareArray.push(new Malware("Trojan", "Trojan.Fakealert.365", 1, "C:\Windows\System32\catroot2\sdkey.exe"));
-malwareArray.push(new Malware("Worm", "Net-Worm.Win32.Koobface.b", 2, "C:\Windows\System32\catroot2\koobface.exe"));
-malwareArray.push(new Malware("Adware", "Adware.Win32.Look2me.ab", 3, "C:\Windows\System32\Boot\look2me.exe"));
-malwareArray.push(new Malware("Trojan", "Trojan IRC/Backdor.SdBot4.FRV", 2, "C:\Windows\SysWOW64\sdbot.exe"));
-malwareArray.push(new Malware("Ransomware", "CryptoLocker", 4, "C:\Windows\SysWOW64\cryptolocker.exe"));
-malwareArray.push(new Malware("Ransomware", "WannaCry", 4, "C:\Windows\debug\wannacry.exe"));
-malwareArray.push(new Malware("Trojan", "Trojan.Qoologic - Key Logger", 3, "C:\Windows\debug\qoologic.exe"));
-malwareArray.push(new Malware("Spyware", "Win32/Hoax.Renos.HX", 1, "C:\Windows\System32\Boot\hoax.exe"));
+malwareArray.push(new Malware("Worm", "I-Worm/Mydoom.K", "Critical", "C:\Windows\System32\catroot2\mydoom.exe"));
+malwareArray.push(new Malware("Trojan", "Trojan.Fakealert.365", "Low", "C:\Windows\System32\catroot2\sdkey.exe"));
+malwareArray.push(new Malware("Worm", "Net-Worm.Win32.Koobface.b", "Medium", "C:\Windows\System32\catroot2\koobface.exe"));
+malwareArray.push(new Malware("Adware", "Adware.Win32.Look2me.ab", "High", "C:\Windows\System32\Boot\look2me.exe"));
+malwareArray.push(new Malware("Trojan", "Trojan IRC/Backdor.SdBot4.FRV", "Medium", "C:\Windows\SysWOW64\sdbot.exe"));
+malwareArray.push(new Malware("Ransomware", "CryptoLocker", "Critical", "C:\Windows\SysWOW64\cryptolocker.exe"));
+malwareArray.push(new Malware("Ransomware", "WannaCry", "Critical", "C:\Windows\debug\wannacry.exe"));
+malwareArray.push(new Malware("Trojan", "Trojan.Qoologic - Key Logger", "High", "C:\Windows\debug\qoologic.exe"));
+malwareArray.push(new Malware("Spyware", "Win32/Hoax.Renos.HX", "Low", "C:\Windows\System32\Boot\hoax.exe"));
 
 console.log(malwareArray);
 
+let newMalwareArray = [];
 
 // --------------- OBJETOS SCAN-TYPE ---------------
 
-class ScanType {
-    constructor(var1, var2, var3) {
-        this.type = var1;
-        this.rate = var2;
-        this.effectiveness = var3;
-    }
-}
+// class ScanType {
+//     constructor(var1, var2) {
+//         this.type = var1;
+//         this.rate = var2;
+//     }
+// }
 
-const qs = new ScanType("Quick Scan", 0.03, "65%");
-const fs = new ScanType("Full Scan", 0.2, "98%");
-const cs = new ScanType("Custom Scan", 0.13, "98%");
+// const qs = new ScanType("Quick Scan", 0.03);
+// const fs = new ScanType("Full Scan", 0.2);
+// const cs = new ScanType("Custom Scan", 0.13);
 
 // --------------- FUNCION MATH.RANDOM ---------------
 
@@ -46,124 +46,176 @@ function random() {
     return Math.floor(Math.random() * 9);
 }
 
-// --------------- FUNCION MATH.RANDOM FULL SCAN & CUSTOM SCAN ---------------
+// --------------- LOCAL & SESSION STORAGE ---------------
 
-function randomFsCs() {
-    return Math.floor(Math.random() * 7) + 1;
+console.log("Cantidad de LocalStorages almacenados " + localStorage.length);
+
+function storage() {
+
+    let detectedJSON = JSON.stringify(newMalwareArray);
+    localStorage.setItem("detectedStorage", detectedJSON);
+
+    return JSON.parse(localStorage.getItem("detectedStorage"));
 }
 
-// --------------- FUNCION MATH.RANDOM QUICK SCAN ---------------
+// --------------- BUCLE DOM ---------------
 
-function randomQs() {
-    return Math.floor(Math.random() * 4) + 1;
+function bucle(var1) {
+
+    let i = 0;
+
+    for (let malware of var1) {
+
+        let tbody = document.getElementById("tbody");
+
+        let rows = document.createElement("tr");
+        rows.innerHTML = `
+        <td><div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="checkbox${i}">
+            <label class="form-check-label" for="checkbox${i}">${malware.name}</label>
+        </div></td>
+        <td>${malware.type}</td>
+        <td>${malware.risk}</td>
+        <td>${malware.location}</td>
+        `
+
+        tbody.appendChild(rows);
+
+        i++
+    };
 }
 
-// --------------- SIMULACIONES ---------------
+// --------------- LOCAL STORAGE & DOM ---------------
 
-let malwareQs = randomQs();
-let malwareFsCs = randomFsCs();
+if (localStorage.length > 0) {
 
-const newMalwareArray = [];
+    bucle(JSON.parse(localStorage.getItem("detectedStorage")))
+};
 
-function simulacionQs() {
-    do {
-        let detected = malwareArray[random()].name;
-        newMalwareArray.push(detected);
-    } while (newMalwareArray.length < malwareQs)
+// --------------- CLEAR TABLE & STORAGE ---------------
+
+const clear = function clear() {
+    let tbody = document.getElementById("tbody");
+    tbody.innerHTML = "",
+
+        localStorage.clear();
+    console.log("Cantidad de LocalStorages almacenados: " + localStorage.length);
+};
+
+// --------------- SIMULACION QUICK SCAN ---------------
+
+const simulacionQs = (var1) => {
+
+    clear();
+    newMalwareArray = [];
+
+    if (random() <= 4) {
+        alert("No se encontraron Malwares en su sistema");
+    } else {
+        do {
+            let detected = malwareArray[random()];
+            newMalwareArray.push(detected);
+        } while (newMalwareArray.length < var1);
+    }
+
+    bucle(storage());
+};
+
+// --------------- SIMULACION FULL SCAN & CUSTOM SCAN ---------------
+const simulacionFsCs = (var1) => {
+
+    clear();
+    newMalwareArray = [];
+
+    if (random() <= 1) {
+        alert("No se encontraron Malwares en su sistema");
+    } else {
+        do {
+            let detected = malwareArray[random()];
+            newMalwareArray.push(detected);
+        } while (newMalwareArray.length < var1);
+    }
+
+    bucle(storage());
 }
 
-function simulacionFsCs() {
-    do {
-        let detected = malwareArray[random()].name;
-        newMalwareArray.push(detected);
-    } while (newMalwareArray.length < malwareFsCs)
-}
+// --------------- EVENTO QUICK SCAN ---------------
 
-// --------------- CONTENIDOS TOOLS ---------------
+let qsButton = document.getElementById("qsButton");
 
-statusTool();
-// quarantineTool();
+qsButton.addEventListener("click", () => {
+    let malwareQs = Math.floor(Math.random() * 4) + 1;
 
-// --------------- IDIOMA ALTERNATIVO ---------------
+    simulacionQs(malwareQs);
 
-// spanish();
+    console.log("Cantidad de LocalStorages almacenados: " + localStorage.length);
+});
 
-// --------------- FUNCION MENU3() ---------------
+// --------------- EVENTO FULL SCAN ---------------
 
-function menu3() {
-    let menu3 = parseFloat(prompt("¿Cuántos Gigabytes de almacenamiento tiene ocupado tu equipo?"));
-    return menu3;
-}
+let fsButton = document.getElementById("fsButton");
 
-// --------------- MENU INTERACTIVO ---------------
+fsButton.addEventListener("click", () => {
+    let malwareFsCs = Math.floor(Math.random() * 7) + 1;
 
-let loop = true;
+    simulacionFsCs(malwareFsCs);
 
-let menu1 = prompt("Bienvenido usuario a Breezy Antivirus. ¿Quieres analizar tu equipo? SI / NO").toUpperCase();
-if (menu1 == "SI") {
-    do {
-        let menu2 = parseInt(prompt("Elige el tipo de análisis: 1- " + qs.type + " 2- " + fs.type + " 3- " + cs.type + ". Para SALIR presionar 0"));
-        if (menu2 == 1) {
-            alert("Haz elegido correr un " + qs.type + " en tu equipo.");
-            alert("El tiempo estimado del análisis es de " + parseInt(menu3() * qs.rate) + " minutos.");
-            if (random() <= 4) {
-                alert("Su equipo se encuentra limpio de Malwares");
-            } else {
-                simulacionQs();
-                alert("Se han detectado " + newMalwareArray.length + " Malware/s: " + newMalwareArray.join(" || "));
-                let choice = prompt("¿Deseas eliminar los archivos infectados de tu sistema? SI / NO").toUpperCase();
-                if (choice == "SI") {
-                    alert("Los Malwares detectados han sido eliminados de su sistema");
-                } else {
-                    alert("No hay problema, aislaremos el archivo infectado en cuarentena");
-                }
-            }
-            break;
-        } else if (menu2 == 2) {
-            alert("Haz elegido correr un " + fs.type + " en tu equipo.");
-            alert("El tiempo estimado del análisis es de " + parseInt(menu3() * fs.rate) + " minutos.");
-            if (random() <= 1) {
-                alert("Su equipo se encuentra limpio de Malwares");
-            } else {
-                simulacionFsCs();
-                alert("Se han detectado " + newMalwareArray.length + " Malware/s: " + newMalwareArray.join(" || "));
-                let choice = prompt("¿Deseas eliminar los archivos infectados de tu sistema? SI / NO").toUpperCase();
-                if (choice == "SI") {
-                    alert("Los Malwares detectados han sido eliminados de su sistema");
-                } else {
-                    alert("No hay problema, aislaremos el archivo infectado en cuarentena");
-                }
-            }
-            break;
-        } else if (menu2 == 3) {
-            alert("Haz elegido correr un " + cs.type + " en tu equipo.");
-            alert("El tiempo estimado del análisis es de " + parseInt(menu3() * cs.rate) + " minutos.");
-            if (random() <= 1) {
-                alert("Su equipo se encuentra limpio de Malwares");
-            } else {
-                simulacionFsCs();
-                alert("Se han detectado " + newMalwareArray.length + " Malware/s: " + newMalwareArray.join(" || "));
-                let choice = prompt("¿Deseas eliminar los archivos infectados de tu sistema? SI / NO").toUpperCase();
-                if (choice == "SI") {
-                    alert("Los Malwares detectados han sido eliminados de su sistema");
-                } else {
-                    alert("No hay problema, aislaremos el archivo infectado en cuarentena");
-                }
-            }
-            break;
-        } else if (menu2 == 0) {
-            alert("Hasta pronto");
-            break;
-        }
-    } while (loop == true);
-} else {
-    alert("Hasta pronto");
-}
+    console.log("Cantidad de LocalStorages almacenados: " + localStorage.length);
+});
 
-// --------------- STORAGE DE MALWARES DETECTADOS ---------------
+// --------------- EVENTO CUSTOM SCAN ---------------
 
-// localStorage.setItem("list", newMalwareArray.join(" || "));
+let csButton = document.getElementById("csButton");
 
-// let detectedMalwares = localStorage.getItem("list");
+csButton.addEventListener("click", () => {
+    let malwareFsCs = Math.round(Math.random() * 7) + 1;
 
-// quarantineContent();
+    simulacionFsCs(malwareFsCs);
+
+    console.log("Cantidad de LocalStorages almacenados: " + localStorage.length);
+});
+
+// --------------- SPA ---------------
+
+let statusC = document.getElementById("statusCont");
+let quarantineC = document.getElementById("quarantineCont");
+
+let idStatus = document.getElementById("idStatus");
+let idQuarantine = document.getElementById("idQuarantine");
+
+
+idQuarantine.addEventListener("click", () => {
+    quarantineC.classList.remove("hidden");
+
+    statusC.classList.remove("show");
+    statusC.classList.add("hidden");
+
+    idQuarantine.classList.add("active");
+    idStatus.classList.remove("active");
+});
+
+idStatus.addEventListener("click", () => {
+    quarantineC.classList.add("hidden");
+
+    statusC.classList.add("show");
+    statusC.classList.remove("hidden");
+
+    idStatus.classList.add("active");
+    idQuarantine.classList.remove("active");
+})
+
+// --------------- REMOVE BUTTON ---------------
+
+deleteAllButton.addEventListener("click", clear);
+
+// --------------- UPDATE BUTTON ---------------
+
+let upButton = document.getElementById("upButton");
+let layer = document.getElementById("layer");
+let spin = document.getElementById("spin");
+
+upButton.addEventListener("click", () => {
+    layer.classList.add("overlay");
+
+    spin.classList.add("spin");
+});

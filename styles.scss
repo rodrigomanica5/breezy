@@ -67,12 +67,6 @@ h6 {
         cursor: pointer;
     }
 
-    .tool:hover {
-        // background-color: #2f3642;
-        background-color: $bg-general;
-        transition: all 0.2s;
-    }
-
     .toolPro {
         height: auto;
         border-right: none;
@@ -163,9 +157,48 @@ h4 {
     cursor: pointer;
 }
 
-.update:hover {
-    transform: scale(1.01);
-    transition: all 0.2s;
+// .update:hover {
+//     transform: scale(1.01);
+//     transition: all 0.2s;
+// }
+
+.position {
+    height: 105px;
+    position: absolute;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    background-color: #198754;
+    border-radius: 6px;
+    padding-left: 0;
+    padding-right: 0;
+    animation: animate 20s ease-out;
+}
+
+@keyframes animate {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100;
+    }
+}
+
+.spin {
+    animation: spin 20s linear;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(5400deg);
+    }
 }
 
 .pro {
@@ -269,6 +302,33 @@ h4 {
 
 .t4 {
     width: 30%;
+}
+
+.remove {
+    height: 60px;
+    border-radius: 6px;
+    color: $white;
+    font-size: 22px;
+    background-color: #198754;
+    border: none;
+}
+
+.remove:hover {
+    color: $white;
+    background-color: #198754;
+    border: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.active {
+    background-color: $bg-general;
 }
 
 // ------------------- BACKGROUND 

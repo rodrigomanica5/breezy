@@ -1,6 +1,6 @@
 * {
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
   scroll-behavior: smooth;
   margin: 0;
   padding: 0;
@@ -58,12 +58,6 @@ h6 {
   cursor: pointer;
 }
 
-.menuBar .tool:hover {
-  background-color: #2c2e43;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
 .menuBar .toolPro {
   height: auto;
   border-right: none;
@@ -79,7 +73,7 @@ h6 {
 
 .menuBar .power img:hover {
   -webkit-filter: drop-shadow(0px 0px 2px white);
-  filter: drop-shadow(0px 0px 2px white);
+          filter: drop-shadow(0px 0px 2px white);
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
@@ -94,8 +88,7 @@ h4 {
   margin-top: 50px;
 }
 
-.scanButton,
-.lockedService {
+.scanButton, .lockedService {
   height: 205px;
   width: 33%;
   background-color: #3f4752;
@@ -104,17 +97,15 @@ h4 {
   cursor: pointer;
 }
 
-.scanButton p,
-.lockedService p {
+.scanButton p, .lockedService p {
   color: #b8c3c9;
   font-size: 15px;
   margin-bottom: 0;
 }
 
-.scanButton:hover,
-.lockedService:hover {
+.scanButton:hover, .lockedService:hover {
   -webkit-transform: scale(1.01);
-  transform: scale(1.01);
+          transform: scale(1.01);
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
@@ -129,9 +120,9 @@ h4 {
 
 .webProtection:hover {
   -webkit-transform: none;
-  transform: none;
+          transform: none;
   -webkit-box-shadow: none;
-  box-shadow: none;
+          box-shadow: none;
 }
 
 .form-check-input:checked {
@@ -158,11 +149,65 @@ h4 {
   cursor: pointer;
 }
 
-.update:hover {
-  -webkit-transform: scale(1.01);
-  transform: scale(1.01);
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
+.position {
+  height: 105px;
+  position: absolute;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  background-color: #198754;
+  border-radius: 6px;
+  padding-left: 0;
+  padding-right: 0;
+  -webkit-animation: animate 20s ease-out;
+          animation: animate 20s ease-out;
+}
+
+@-webkit-keyframes animate {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100;
+  }
+}
+
+@keyframes animate {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100;
+  }
+}
+
+.spin {
+  -webkit-animation: spin 20s linear;
+          animation: spin 20s linear;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(5400deg);
+            transform: rotate(5400deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(5400deg);
+            transform: rotate(5400deg);
+  }
 }
 
 .pro {
@@ -176,7 +221,7 @@ h4 {
 
 .pro:hover {
   -webkit-transform: scale(1.03);
-  transform: scale(1.03);
+          transform: scale(1.03);
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
@@ -199,11 +244,11 @@ h4 {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .trialButton a {
@@ -212,8 +257,7 @@ h4 {
   padding-top: 10px;
 }
 
-.btn-success,
-.btn-success:hover {
+.btn-success, .btn-success:hover {
   background-color: #e8b923;
   border: 1px solid #e8b923;
   font-size: 18px;
@@ -244,9 +288,9 @@ h4 {
 
 .lockedService:hover {
   -webkit-box-shadow: none;
-  box-shadow: none;
+          box-shadow: none;
   -webkit-transform: none;
-  transform: none;
+          transform: none;
 }
 
 .creditos {
@@ -275,6 +319,33 @@ h4 {
   width: 30%;
 }
 
+.remove {
+  height: 60px;
+  border-radius: 6px;
+  color: white;
+  font-size: 22px;
+  background-color: #198754;
+  border: none;
+}
+
+.remove:hover {
+  color: white;
+  background-color: #198754;
+  border: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.active {
+  background-color: #2c2e43;
+}
+
 /* ---- reset ---- */
 canvas {
   display: block;
@@ -292,5 +363,4 @@ canvas {
   background-size: cover;
   background-position: 50% 50%;
 }
-
 /*# sourceMappingURL=styles.css.map */
