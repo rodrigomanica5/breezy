@@ -284,6 +284,12 @@ h4 {
 
 // ------------------- QUARANTINE CONTENT 
 
+// .swal-modal {
+
+// }
+
+// ------------------- QUARANTINE CONTENT 
+
 .detectionList {
     margin-top: 150px;
 }
@@ -329,6 +335,46 @@ h4 {
 
 .active {
     background-color: $bg-general;
+}
+
+// ------------------- QUARANTINE CONTENT
+
+.off {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    background-color: #212529;
+    top: 0;
+    animation: off 0s ease-in;
+    z-index: 3;
+}
+
+@keyframes off {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100;
+    }
+}
+
+.tarjeta {
+    border: 1px solid $white;
+    border-radius: 6px;
+    height: 200px;
+}
+
+.info {
+    z-index: 4;
+
+    .nombre {
+        color: $white;
+    }
+
+    .profesion {
+        color: $white;
+    }
 }
 
 // ------------------- BACKGROUND 

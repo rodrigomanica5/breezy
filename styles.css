@@ -346,6 +346,53 @@ h4 {
   background-color: #2c2e43;
 }
 
+.off {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  background-color: #212529;
+  top: 0;
+  -webkit-animation: off 0s ease-in;
+          animation: off 0s ease-in;
+  z-index: 3;
+}
+
+@-webkit-keyframes off {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100;
+  }
+}
+
+@keyframes off {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100;
+  }
+}
+
+.tarjeta {
+  border: 1px solid white;
+  border-radius: 6px;
+  height: 200px;
+}
+
+.info {
+  z-index: 4;
+}
+
+.info .nombre {
+  color: white;
+}
+
+.info .profesion {
+  color: white;
+}
+
 /* ---- reset ---- */
 canvas {
   display: block;

@@ -13,15 +13,15 @@ class Malware {
 
 const malwareArray = [];
 
-malwareArray.push(new Malware("Worm", "I-Worm/Mydoom.K", "Critical", "C:\Windows\System32\catroot2\mydoom.exe"));
-malwareArray.push(new Malware("Trojan", "Trojan.Fakealert.365", "Low", "C:\Windows\System32\catroot2\sdkey.exe"));
-malwareArray.push(new Malware("Worm", "Net-Worm.Win32.Koobface.b", "Medium", "C:\Windows\System32\catroot2\koobface.exe"));
-malwareArray.push(new Malware("Adware", "Adware.Win32.Look2me.ab", "High", "C:\Windows\System32\Boot\look2me.exe"));
-malwareArray.push(new Malware("Trojan", "Trojan IRC/Backdor.SdBot4.FRV", "Medium", "C:\Windows\SysWOW64\sdbot.exe"));
-malwareArray.push(new Malware("Ransomware", "CryptoLocker", "Critical", "C:\Windows\SysWOW64\cryptolocker.exe"));
-malwareArray.push(new Malware("Ransomware", "WannaCry", "Critical", "C:\Windows\debug\wannacry.exe"));
-malwareArray.push(new Malware("Trojan", "Trojan.Qoologic - Key Logger", "High", "C:\Windows\debug\qoologic.exe"));
-malwareArray.push(new Malware("Spyware", "Win32/Hoax.Renos.HX", "Low", "C:\Windows\System32\Boot\hoax.exe"));
+malwareArray.push(new Malware("Worm", "I-Worm/Mydoom.K", "Critical", "C:\\Windows\\System32\\catroot2\\mydoom.exe"));
+malwareArray.push(new Malware("Trojan", "Trojan.Fakealert.365", "Low", "C:\\Windows\\System32\\catroot2\\sdkey.exe"));
+malwareArray.push(new Malware("Worm", "Net-Worm.Win32.Koobface.b", "Medium", "C:\\Windows\\System32\\catroot2\\koobface.exe"));
+malwareArray.push(new Malware("Adware", "Adware.Win32.Look2me.ab", "High", "C:\\Windows\\System32\\Boot\\look2me.exe"));
+malwareArray.push(new Malware("Trojan", "Trojan IRC/Backdor.SdBot4.FRV", "Medium", "C:\\Windows\\SysWOW64\\sdbot.exe"));
+malwareArray.push(new Malware("Ransomware", "CryptoLocker", "Critical", "C:\\Windows\\SysWOW64\\cryptolocker.exe"));
+malwareArray.push(new Malware("Ransomware", "WannaCry", "Critical", "C:\\Windows\\debug\\wannacry.exe"));
+malwareArray.push(new Malware("Trojan", "Trojan.Qoologic - Key Logger", "High", "C:\\Windows\\debug\\qoologic.exe"));
+malwareArray.push(new Malware("Spyware", "Win32/Hoax.Renos.HX", "Low", "C:\\Windows\\System32\\Boot\\hoax.exe"));
 
 console.log(malwareArray);
 
@@ -62,7 +62,7 @@ function storage() {
 
 function bucle(var1) {
 
-    let i = 0;
+    let i = 1;
 
     for (let malware of var1) {
 
@@ -71,8 +71,8 @@ function bucle(var1) {
         let rows = document.createElement("tr");
         rows.innerHTML = `
         <td><div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="checkbox${i}">
-            <label class="form-check-label" for="checkbox${i}">${malware.name}</label>
+            <input class="form-check-input" type="checkbox" value="" id="cbx${i}">
+            <label class="form-check-label" for="cbx${i}">${malware.name}</label>
         </div></td>
         <td>${malware.type}</td>
         <td>${malware.risk}</td>
@@ -110,9 +110,20 @@ const simulacionQs = (var1) => {
     newMalwareArray = [];
 
     if (random() <= 4) {
-        alert("No se encontraron Malwares en su sistema");
+        swal({
+            title: "No threats were detected!",
+            text: "Your system is clean and safe of malwares",
+            icon: "success",
+            button: "OK",
+        });
     } else {
         do {
+            swal({
+                title: "Threats were detected",
+                text: "Remove them in the Quarantine section",
+                icon: "warning",
+                button: "OK",
+            });
             let detected = malwareArray[random()];
             newMalwareArray.push(detected);
         } while (newMalwareArray.length < var1);
@@ -128,9 +139,20 @@ const simulacionFsCs = (var1) => {
     newMalwareArray = [];
 
     if (random() <= 1) {
-        alert("No se encontraron Malwares en su sistema");
+        swal({
+            title: "No threats were detected!",
+            text: "Your system is clean and safe of malwares",
+            icon: "success",
+            button: "OK",
+        });
     } else {
         do {
+            swal({
+                title: "Threats were detected",
+                text: "Remove them in the Quarantine section",
+                icon: "warning",
+                button: "OK",
+            });
             let detected = malwareArray[random()];
             newMalwareArray.push(detected);
         } while (newMalwareArray.length < var1);
@@ -218,4 +240,19 @@ upButton.addEventListener("click", () => {
     layer.classList.add("overlay");
 
     spin.classList.add("spin");
+});
+
+// --------------- POWER & CARD ---------------
+
+$("#power").on("click", () => {
+    $("body").prepend(`
+    <div class="row off">
+        <div class="tarjeta col-xl-3 mx-auto my-auto py-5 d-flex justify-content-around">
+            <img src="img/perfil.png" alt="Rodrigo Manica" width="100px" height="100px">
+            <div class="info">
+                <h2 class="nombre mx-auto pt-3">Rodrigo Manica</h2>
+                <h5 class="profesion mx-auto">Front End Developer</h5>
+            </div>
+        </div>
+    </div>`);
 });

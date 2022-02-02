@@ -43,11 +43,10 @@ nav.innerHTML = `
 </div>
 
 <div class="power col-xl-12 text-center">
-    <img src="img/power.png" alt="Turn Off" width="60px" height="60px" class="mt-3">
+    <img src="img/power.png" alt="Turn Off" width="60px" height="60px" class="mt-3" id="power">
 </div>
 `;
 
-// const menu1 = function statusTool() {
 
 let statusCont = document.getElementById("statusCont");
 statusCont.innerHTML = `
