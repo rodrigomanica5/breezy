@@ -5,7 +5,7 @@ let topBar = document.getElementById("header");
 topBar.innerHTML = `
 <div class="topBar col-xl-12 d-flex align-items-center justify-content-end">
     <div class="language">
-        <img src="img/english.png" alt="English" width="18px" height="18px" class="dropdown-toggle" id="dropdownMenuDark" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="img/english.png" alt="English" width="18px" height="18px" class="dropdown-toggle flag" id="dropdownMenuDark" data-bs-toggle="dropdown" aria-expanded="false">
 
         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuDark">
             <li class="languageOption dropdown-item" id="en"><img src="img/english.png" alt="English" width="18px" height="18px"> English</li>

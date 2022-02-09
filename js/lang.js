@@ -2,6 +2,11 @@ let langEs = document.getElementById("es");
 
 langEs.addEventListener("click", () => {
 
+    // --------------- FLAG SWITCH ---------------
+
+    $(".flag").attr("src", "img/spanish.png");
+    $(".flag").attr("alt", "Spanish");
+
     // --------------- SCAN TITLES ---------------
 
     let qsTitle = document.getElementById("qsTitle");
@@ -79,6 +84,10 @@ langEs.addEventListener("click", () => {
 let langEn = document.getElementById("en");
 
 langEn.addEventListener("click", () => {
+
+    // --------------- FLAG SWITCH ---------------
+
+    $(".flag").attr("src", "img/english.png");
 
     // --------------- SCAN TITLES ---------------
 

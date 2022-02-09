@@ -179,6 +179,7 @@ const simulacionFsCs = (var1) => {
 let qsButton = document.getElementById("qsButton");
 
 qsButton.addEventListener("click", () => {
+
     let malwareQs = Math.floor(Math.random() * 3) + 1;
 
     simulacionQs(malwareQs);
@@ -306,8 +307,13 @@ $("#power").on("click", () => {
                 <div class="tarjeta col-xl-3 mx-auto my-auto py-5 d-flex justify-content-around">
                     <img src="img/perfil.png" alt="Rodrigo Manica" width="100px" height="100px">
                     <div class="info">
-                        <h2 class="nombre mx-auto pt-3">Rodrigo Manica</h2>
+                        <h2 class="nombre mx-auto pt-2">Rodrigo Manica</h2>
                         <h5 class="profesion mx-auto">Front End Developer</h5>
+
+                        <div class="d-flex justify-content-start">
+                            <a href="https://www.linkedin.com/in/rodrigomanica/" target="_blank" class="mt-2"><img src="img/linkedin.svg" alt="LinkedIn" height="30px" width="30px"></a>
+                            <a href="https://github.com/rodrigomanica5" target="_blank" class="mx-2 mt-2"><img src="img/github.svg" alt="GitHub" height="30px" width="30px"></a>
+                        </div>
                     </div>
                 </div>
             </div>`);
@@ -336,11 +342,11 @@ $(() => {
             Swal.fire({
                 position: 'center',
                 icon: 'success',
-                text: `Your IP Address was verified by Breezy Antivirus!`,
+                text: `Your IP Address has been verified by Breezy Antivirus!`,
                 title: respuesta.ip,
                 showConfirmButton: false,
                 allowOutsideClick: false,
-                timer: 4000,
+                timer: 2300,
             });
         }
     })
