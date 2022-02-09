@@ -27,19 +27,6 @@ console.log(malwareArray);
 
 let newMalwareArray = [];
 
-// --------------- OBJETOS SCAN-TYPE ---------------
-
-// class ScanType {
-//     constructor(var1, var2) {
-//         this.type = var1;
-//         this.rate = var2;
-//     }
-// }
-
-// const qs = new ScanType("Quick Scan", 0.03);
-// const fs = new ScanType("Full Scan", 0.2);
-// const cs = new ScanType("Custom Scan", 0.13);
-
 // --------------- FUNCION MATH.RANDOM ---------------
 
 function random() {
@@ -58,38 +45,66 @@ function storage() {
     return JSON.parse(localStorage.getItem("detectedStorage"));
 }
 
+let parseStorage = JSON.parse(localStorage.getItem("detectedStorage"));
+
+// --------------- QUARANTINE SUCCESS MESSAGE ---------------
+
+function successMessage() {
+    $("#imgStatus").attr("src", "img/success.svg");
+    $("#QuarantineTitle").html("Good job! Your system is free of malwares");
+};
+
+// --------------- QUARANTINE WARNING MESSAGE ---------------
+
+function warningMessage() {
+    $("#imgStatus").attr("src", "img/warning.svg");
+    $("#QuarantineTitle").html("Your system is in danger! Remove the malwares");
+};
+
+// --------------- QUARANTINE HEADER ---------------
+
+if (parseStorage == null) {
+    successMessage();
+} else if (parseStorage.length >= 0) {
+    if (parseStorage.length == 0) {
+        successMessage();
+    } else {
+        warningMessage();
+    }
+};
+
 // --------------- BUCLE DOM ---------------
 
 function bucle(var1) {
 
-    let i = 1;
+    let i = 0;
 
     for (let malware of var1) {
 
         let tbody = document.getElementById("tbody");
 
         let rows = document.createElement("tr");
+        rows.setAttribute("id", `tr${i}`);
+
+        malware["id"] = i;
+
         rows.innerHTML = `
-        <td><div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="cbx${i}">
-            <label class="form-check-label" for="cbx${i}">${malware.name}</label>
-        </div></td>
+        <td><button class="btn btn-danger" id="removeButton${i}">Delete</button> ${malware.name}</td>
         <td>${malware.type}</td>
         <td>${malware.risk}</td>
         <td>${malware.location}</td>
         `
 
-        tbody.appendChild(rows);
-
         i++
+
+        tbody.appendChild(rows);
     };
 }
 
 // --------------- LOCAL STORAGE & DOM ---------------
 
 if (localStorage.length > 0) {
-
-    bucle(JSON.parse(localStorage.getItem("detectedStorage")))
+    bucle(parseStorage);
 };
 
 // --------------- CLEAR TABLE & STORAGE ---------------
@@ -100,7 +115,19 @@ const clear = function clear() {
 
         localStorage.clear();
     console.log("Cantidad de LocalStorages almacenados: " + localStorage.length);
+
+    successMessage();
 };
+
+// --------------- DELETE BUTTON ---------------
+
+function deleteButton() {
+    for (let i = 0; i < 8; i++) {
+        $(`#removeButton${i}`).on("click", () => {
+            $(`#tr${i}`).html("");
+        });
+    };
+}
 
 // --------------- SIMULACION QUICK SCAN ---------------
 
@@ -110,67 +137,54 @@ const simulacionQs = (var1) => {
     newMalwareArray = [];
 
     if (random() <= 4) {
-        swal({
-            title: "No threats were detected!",
-            text: "Your system is clean and safe of malwares",
-            icon: "success",
-            button: "OK",
-        });
+        successMessage();
     } else {
+        warningMessage();
         do {
-            swal({
-                title: "Threats were detected",
-                text: "Remove them in the Quarantine section",
-                icon: "warning",
-                button: "OK",
-            });
             let detected = malwareArray[random()];
             newMalwareArray.push(detected);
         } while (newMalwareArray.length < var1);
     }
 
     bucle(storage());
+
+    deleteButton();
 };
 
 // --------------- SIMULACION FULL SCAN & CUSTOM SCAN ---------------
+
 const simulacionFsCs = (var1) => {
 
     clear();
     newMalwareArray = [];
 
     if (random() <= 1) {
-        swal({
-            title: "No threats were detected!",
-            text: "Your system is clean and safe of malwares",
-            icon: "success",
-            button: "OK",
-        });
+        successMessage();
     } else {
+        warningMessage();
         do {
-            swal({
-                title: "Threats were detected",
-                text: "Remove them in the Quarantine section",
-                icon: "warning",
-                button: "OK",
-            });
             let detected = malwareArray[random()];
             newMalwareArray.push(detected);
         } while (newMalwareArray.length < var1);
     }
 
     bucle(storage());
+
+    deleteButton();
 }
+
 
 // --------------- EVENTO QUICK SCAN ---------------
 
 let qsButton = document.getElementById("qsButton");
 
 qsButton.addEventListener("click", () => {
-    let malwareQs = Math.floor(Math.random() * 4) + 1;
+    let malwareQs = Math.floor(Math.random() * 3) + 1;
 
     simulacionQs(malwareQs);
 
     console.log("Cantidad de LocalStorages almacenados: " + localStorage.length);
+
 });
 
 // --------------- EVENTO FULL SCAN ---------------
@@ -178,11 +192,12 @@ qsButton.addEventListener("click", () => {
 let fsButton = document.getElementById("fsButton");
 
 fsButton.addEventListener("click", () => {
-    let malwareFsCs = Math.floor(Math.random() * 7) + 1;
+    let malwareFsCs = Math.floor(Math.random() * 6) + 1;
 
     simulacionFsCs(malwareFsCs);
 
     console.log("Cantidad de LocalStorages almacenados: " + localStorage.length);
+
 });
 
 // --------------- EVENTO CUSTOM SCAN ---------------
@@ -190,12 +205,26 @@ fsButton.addEventListener("click", () => {
 let csButton = document.getElementById("csButton");
 
 csButton.addEventListener("click", () => {
-    let malwareFsCs = Math.round(Math.random() * 7) + 1;
+    let malwareFsCs = Math.round(Math.random() * 6) + 1;
 
     simulacionFsCs(malwareFsCs);
 
     console.log("Cantidad de LocalStorages almacenados: " + localStorage.length);
+
 });
+
+// --------------- EXP ---------------
+
+// function eliminarCarrito(malwareId) {
+//     const virus = parseStorage.find(x => x.id === malwareId);
+//     const malwareIndex = parseStorage.indexOf(virus);
+
+//     parseStorage.splice(malwareIndex, 1);
+// }
+
+// --------------- DELETE BUTTON - DOM ---------------
+
+deleteButton();
 
 // --------------- SPA ---------------
 
@@ -207,20 +236,19 @@ let idQuarantine = document.getElementById("idQuarantine");
 
 
 idQuarantine.addEventListener("click", () => {
-    quarantineC.classList.remove("hidden");
 
-    statusC.classList.remove("show");
-    statusC.classList.add("hidden");
+    $("#statusCont").hide();
+    $("#quarantineCont").fadeIn(400);
 
     idQuarantine.classList.add("active");
     idStatus.classList.remove("active");
+
 });
 
 idStatus.addEventListener("click", () => {
-    quarantineC.classList.add("hidden");
 
-    statusC.classList.add("show");
-    statusC.classList.remove("hidden");
+    $("#quarantineCont").hide();
+    $("#statusCont").fadeIn(400);
 
     idStatus.classList.add("active");
     idQuarantine.classList.remove("active");
@@ -237,22 +265,83 @@ let layer = document.getElementById("layer");
 let spin = document.getElementById("spin");
 
 upButton.addEventListener("click", () => {
+
+    $("#uTitle").html("Updating...");
+
     layer.classList.add("overlay");
 
     spin.classList.add("spin");
+
+
+    setTimeout(() => {
+        Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: `Databases are up to date`,
+                showConfirmButton: false,
+                timer: 2200,
+            },
+
+            $("#uTitle").html("Updated!"));
+    }, 20000);
 });
 
 // --------------- POWER & CARD ---------------
 
 $("#power").on("click", () => {
-    $("body").prepend(`
-    <div class="row off">
-        <div class="tarjeta col-xl-3 mx-auto my-auto py-5 d-flex justify-content-around">
-            <img src="img/perfil.png" alt="Rodrigo Manica" width="100px" height="100px">
-            <div class="info">
-                <h2 class="nombre mx-auto pt-3">Rodrigo Manica</h2>
-                <h5 class="profesion mx-auto">Front End Developer</h5>
-            </div>
-        </div>
-    </div>`);
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "Your system will be unprotected.",
+        icon: 'warning',
+        iconColor: '#dc3545',
+        background: 'white',
+        showCancelButton: true,
+        confirmButtonColor: '#dc3545',
+        cancelButtonColor: '#198754',
+        confirmButtonText: 'Turn Off'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $("body").prepend(`
+            <div class="row off">
+                <div class="tarjeta col-xl-3 mx-auto my-auto py-5 d-flex justify-content-around">
+                    <img src="img/perfil.png" alt="Rodrigo Manica" width="100px" height="100px">
+                    <div class="info">
+                        <h2 class="nombre mx-auto pt-3">Rodrigo Manica</h2>
+                        <h5 class="profesion mx-auto">Front End Developer</h5>
+                    </div>
+                </div>
+            </div>`);
+        }
+    })
+});
+
+// console.log(parseStorage)
+
+// parseStorage.splice(3, 1);
+
+// console.log(parseStorage);
+
+// --------------- AJAX ---------------
+
+const ipify = `https://api.ipify.org?format=json`;
+
+$(() => {
+
+    $.get(ipify, (respuesta, estado) => {
+
+        if (estado == "success") {
+
+            console.log(respuesta);
+
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                text: `Your IP Address was verified by Breezy Antivirus!`,
+                title: respuesta.ip,
+                showConfirmButton: false,
+                allowOutsideClick: false,
+                timer: 4000,
+            });
+        }
+    })
 });

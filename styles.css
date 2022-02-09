@@ -10,6 +10,11 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
+h1 {
+  color: white;
+  font-size: 50px;
+}
+
 h4 {
   color: white;
   font-size: 22px;
@@ -152,6 +157,15 @@ h4 {
 .position {
   height: 105px;
   position: absolute;
+}
+
+.updated {
+  height: 100%;
+  width: 100%;
+  background-color: #198754;
+  border-radius: 6px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .overlay {
@@ -299,12 +313,8 @@ h4 {
   text-align: center;
 }
 
-.detectionList {
-  margin-top: 150px;
-}
-
 .t1 {
-  width: 20%;
+  width: 30%;
 }
 
 .t2 {

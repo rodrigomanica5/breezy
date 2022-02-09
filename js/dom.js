@@ -174,11 +174,13 @@ part5.innerHTML = `
 
 // --------------- PART6 QUARANTINE ---------------
 
+let quarantineCont = document.getElementById("quarantineCont");
+
 // --------------- TABLA ---------------
 
-let quarantineCont = document.getElementById("quarantineCont");
+
 quarantineCont.innerHTML = `
-    <div class="detectionList row col-xl-8 mx-auto" id="quarantineDiv">
+    <div class="detectionList row col-xl-9 mx-auto" id="quarantineDiv">
         <table class="table table-hover table-dark" id="detectedTable">
             <thead>
                 <tr>
@@ -190,7 +192,7 @@ quarantineCont.innerHTML = `
             </thead>
             <tbody id="tbody">
             </tbody>
-            </table>
+        </table>
     </div>
     `;
 
@@ -203,3 +205,14 @@ deleteAllButton.className = `remove btn btn-success col-xl-5 mx-auto`;
 deleteAllButton.innerText = `Remove All`;
 
 quarantineDiv.appendChild(deleteAllButton);
+
+// --------------- QUARANTINE STATUS ---------------
+
+$("#quarantineCont").prepend(`
+    <div class="row">
+        <div class="col-xl-7 mx-auto my-5 d-flex justify-content-around text-center">
+            <img id="imgStatus" alt="" width="150px" height="150px">
+            <h1 id="QuarantineTitle"></h1>
+        </div>
+    </div>
+    `);
