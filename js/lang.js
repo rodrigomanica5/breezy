@@ -1,3 +1,5 @@
+// --------------- SPANISH VERSION ---------------
+
 let langEs = document.getElementById("es");
 
 langEs.addEventListener("click", () => {
@@ -29,7 +31,7 @@ langEs.addEventListener("click", () => {
     let csDescription = document.getElementById("csDescription");
     csDescription.innerText = "Elige las áreas de tu dispositivo a analizar";
 
-    // --------------- TOOL TITLES ---------------
+    // --------------- TOOLS TITLES ---------------
 
     let statusTool = document.getElementById("statusTool");
     statusTool.innerText = "Estado";
@@ -51,7 +53,7 @@ langEs.addEventListener("click", () => {
     // --------------- UPDATE ---------------
 
     let uTitle = document.getElementById("uTitle");
-    uTitle.innerText = "Actualizar"
+    uTitle.innerText = "Actualizar";
 
     // --------------- BREEZY PRO ---------------
 
@@ -59,7 +61,7 @@ langEs.addEventListener("click", () => {
     proTitle.innerText = "Maximiza tu protección con Breezy PRO";
 
     let proDescription = document.getElementById("proDescription");
-    proDescription.innerText = "Incluye Firewall optimizado, Protección para todos los dispositivos, Safe Money y Control parental"
+    proDescription.innerText = "Incluye Firewall optimizado, Protección para todos los dispositivos, Safe Money y Control parental";
 
     let trialButton = document.getElementById("trialButton");
     trialButton.innerHTML = `
@@ -67,7 +69,7 @@ langEs.addEventListener("click", () => {
     `;
 
     let callToAction = document.getElementById("callToAction");
-    callToAction.innerText = "Comprar"
+    callToAction.innerText = "Comprar";
 
     // --------------- LOCKED SERVICES TITLES ---------------
 
@@ -79,7 +81,10 @@ langEs.addEventListener("click", () => {
 
     let ls4 = document.getElementById("ls4");
     ls4.innerText = "Control Parental";
-})
+});
+
+
+// --------------- ENGLISH VERSION ---------------
 
 let langEn = document.getElementById("en");
 
@@ -111,7 +116,7 @@ langEn.addEventListener("click", () => {
     let csDescription = document.getElementById("csDescription");
     csDescription.innerText = "Choose the areas of your device you prefer to scan";
 
-    // --------------- TOOL TITLES ---------------
+    // --------------- TOOLS TITLES ---------------
 
     let statusTool = document.getElementById("statusTool");
     statusTool.innerText = "Status";
@@ -133,7 +138,7 @@ langEn.addEventListener("click", () => {
     // --------------- UPDATE ---------------
 
     let uTitle = document.getElementById("uTitle");
-    uTitle.innerText = "Update"
+    uTitle.innerText = "Update";
 
     // --------------- BREEZY PRO ---------------
 
@@ -141,7 +146,7 @@ langEn.addEventListener("click", () => {
     proTitle.innerText = "Maximize your protection with Breezy PRO";
 
     let proDescription = document.getElementById("proDescription");
-    proDescription.innerText = "Includes Enhanced Firewall, Protection for all devices, Safe Money and Protection for kids."
+    proDescription.innerText = "Includes Enhanced Firewall, Protection for all devices, Safe Money and Protection for kids.";
 
     let trialButton = document.getElementById("trialButton");
     trialButton.innerHTML = `
@@ -149,7 +154,7 @@ langEn.addEventListener("click", () => {
     `;
 
     let callToAction = document.getElementById("callToAction");
-    callToAction.innerText = "Buy Now"
+    callToAction.innerText = "Buy Now";
 
     // --------------- LOCKED SERVICES TITLES ---------------
 
@@ -161,4 +166,4 @@ langEn.addEventListener("click", () => {
 
     let ls4 = document.getElementById("ls4");
     ls4.innerText = "Protection for kids";
-})
+});

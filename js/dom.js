@@ -1,6 +1,5 @@
 // --------------- HEADER ---------------
 
-
 let topBar = document.getElementById("header");
 topBar.innerHTML = `
 <div class="topBar col-xl-12 d-flex align-items-center justify-content-end">
@@ -47,6 +46,7 @@ nav.innerHTML = `
 </div>
 `;
 
+// --------------- STATUS CONTAINER ---------------
 
 let statusCont = document.getElementById("statusCont");
 statusCont.innerHTML = `
@@ -61,7 +61,7 @@ statusCont.innerHTML = `
     <article class="col-xl-12 mt-4" id="part5"></article>
     `;
 
-// --------------- PART1 STATUS ---------------
+// --------------- STATUS PART 1 ---------------
 
 let part1 = document.getElementById("part1");
 part1.innerHTML = `
@@ -84,7 +84,7 @@ part1.innerHTML = `
     </div>
     `;
 
-// --------------- PART2 STATUS ---------------
+// --------------- STATUS PART 2 ---------------
 
 let part2 = document.getElementById("part2");
 part2.innerHTML = `
@@ -118,7 +118,7 @@ part2.innerHTML = `
         </div>
     `;
 
-// --------------- PART3 STATUS ---------------
+// --------------- STATUS PART 3 ---------------
 
 let part3 = document.getElementById("part3");
 part3.innerHTML = `
@@ -129,11 +129,11 @@ part3.innerHTML = `
 
     <div class="trialButton col-xl-4">
         <input type="submit" name="" id="trialButton" class="btn btn-success" value="FREE 30-day Trial">
-        <a href="" id="callToAction">Buy Now</a>
+        <a href="#" id="callToAction">Buy Now</a>
     </div>
     `;
 
-// --------------- PART4 STATUS ---------------
+// --------------- STATUS PART 4 ---------------
 
 let part4 = document.getElementById("part4");
 part4.innerHTML = `
@@ -162,22 +162,19 @@ part4.innerHTML = `
     </div>
     `;
 
-// --------------- PART5 STATUS ---------------
+// --------------- STATUS PART 5 ---------------
 
 let part5 = document.getElementById("part5");
 part5.innerHTML = `
     <p class="creditos my-0 pt-2">© 2021 - 2022 Powered by Rodrigo Manica. All rights reserved.</p>
     `;
-// };
 
-// const menu2 = function quarantineTool() {
 
-// --------------- PART6 QUARANTINE ---------------
+// --------------- QUARANTINE CONTAINER ---------------
 
 let quarantineCont = document.getElementById("quarantineCont");
 
-// --------------- TABLA ---------------
-
+// --------------- QUARANTINE TABLE ---------------
 
 quarantineCont.innerHTML = `
     <div class="detectionList row col-xl-9 mx-auto" id="quarantineDiv">
@@ -196,9 +193,9 @@ quarantineCont.innerHTML = `
     </div>
     `;
 
-let quarantineDiv = document.getElementById("quarantineDiv")
+let quarantineDiv = document.getElementById("quarantineDiv");
 
-// --------------- REMOVE ALL BUTTON ---------------
+// --------------- QUARANTINE REMOVE ALL BUTTON ---------------
 
 let deleteAllButton = document.createElement("button");
 deleteAllButton.className = `remove btn btn-success col-xl-5 mx-auto`;
@@ -206,7 +203,7 @@ deleteAllButton.innerText = `Remove All`;
 
 quarantineDiv.appendChild(deleteAllButton);
 
-// --------------- QUARANTINE STATUS ---------------
+// --------------- QUARANTINE MESSAGE ---------------
 
 $("#quarantineCont").prepend(`
     <div class="row">
